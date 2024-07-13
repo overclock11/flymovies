@@ -2,4 +2,7 @@
   justify-content: space-between;
   flex-wrap: nowrap;
   display: flex;
+  & > div {
+    margin-right: 15px;
+  }
 }

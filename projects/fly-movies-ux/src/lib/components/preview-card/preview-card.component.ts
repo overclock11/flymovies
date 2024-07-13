@@ -8,7 +8,7 @@ import {NgOptimizedImage} from "@angular/common";
     NgOptimizedImage
   ],
   templateUrl: './preview-card.component.html',
-  styleUrl: './preview-card.component.css'
+  styleUrl: './preview-card.component.scss'
 })
 export class PreviewCardComponent {
   @Input() title: string;

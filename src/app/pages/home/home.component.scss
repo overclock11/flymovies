@@ -1,0 +1,14 @@
+.mat-mdc-tab .mdc-tab__text-label {
+  --mat-tab-header-inactive-label-text-color:white;
+  --mat-tab-header-active-hover-label-text-color: white;
+}
+
+.mat-mdc-tab:hover .mdc-tab__text-label {
+  --mat-tab-header-inactive-hover-label-text-color:white;
+  --mat-tab-header-active-hover-label-text-color: white;
+}
+
+.mat-mdc-tab:active .mdc-tab__text-label {
+  --mat-tab-header-inactive-hover-label-text-color:white;
+  --mat-tab-header-active-hover-label-text-color: white;
+}

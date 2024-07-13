@@ -1,16 +1,21 @@
-<div  #scroll>
-  <section
-    infinite-scroll
-    [infiniteScrollDistance]="scrollDistance"
-    [infiniteScrollUpDistance]="scrollUpDistance"
-    [infiniteScrollThrottle]="throttle"
-    (scrolled)="onScrollDown($event)"
-    (scrolledUp)="onUp($event)"
-    [horizontal]="true"
-    class="shows"
-  >
-    <div *ngFor="let show of featured">
-      <lib-preview-card [title]="show.Title" [score]="'2'" [poster]="show.Poster" />
+<div #scroll>
+
+  <section id="featured">
+    <h1>Featured today</h1>
+    <div class="shows">
+      <div *ngFor="let show of featured">
+        <lib-preview-card [title]="show.Title" [score]="'2'" [poster]="show.Poster" />
+      </div>
     </div>
   </section>
+
+  <section id="premieres">
+    <h1>Premieres and announcements</h1>
+    <div class="shows">
+      <div *ngFor="let show of announcements">
+        <lib-preview-card [title]="show.Title" [score]="'2'" [poster]="show.Poster" />
+      </div>
+    </div>
+  </section>
+
 </div>

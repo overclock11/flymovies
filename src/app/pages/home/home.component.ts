@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {MatTabsModule} from "@angular/material/tabs";
 import {OmdbService} from "../../api/omdb.service";
 import {Show} from "../../models/show";
@@ -10,7 +10,8 @@ import {ShowsComponent} from "./shows/shows.component";
   standalone: true,
   imports: [MatTabsModule, ShowsComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
 

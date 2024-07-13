@@ -112,6 +112,11 @@
     },
     "fly-movies-ux": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/fly-movies-ux",
       "sourceRoot": "projects/fly-movies-ux/src",
       "prefix": "lib",
@@ -143,5 +148,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
