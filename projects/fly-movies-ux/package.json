@@ -1,0 +1,15 @@
+{
+  "name": "fly-movies-ux",
+  "version": "0.0.1",
+  "author": "Julián Borray <jlian92@gmail.com>",
+  "description": "ux components for flypass app",
+  "repository": "",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

@@ -1,0 +1,16 @@
+<div  #scroll>
+  <section
+    infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollDown($event)"
+    (scrolledUp)="onUp($event)"
+    [horizontal]="true"
+    class="shows"
+  >
+    <div *ngFor="let show of featured">
+      <lib-preview-card [title]="show.Title" [score]="'2'" [poster]="show.Poster" />
+    </div>
+  </section>
+</div>
