@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
-import {DEFAULT_IMAGE} from "../../constants/defaultImage";
+import {DEFAULT_IMAGE} from "../../constants";
 
 @Component({
   selector: 'lib-preview-card',

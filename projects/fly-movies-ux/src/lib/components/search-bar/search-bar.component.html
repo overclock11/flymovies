@@ -6,18 +6,20 @@
            [matAutocomplete]="auto"
            #searchBar
     >
-    <mat-autocomplete #auto="matAutocomplete" [classList]="['autocomplete']">
+    <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let show of shows" [value]="show.title"
                   [classList]="['search-bar__option']"
                   [class]="'search-bar__option'"
                   (click)="selectedShow()"
       >
-        <div>
-          <img ngSrc="{{show.poster === 'N/A' ? defaultImage : show.poster }}" alt="poster image" width="53" height="83">
-        </div>
-        <div>
-          <span>{{show.title}}</span>
-          <span>{{show.year}}</span>
+        <div class="search-bar__autocomplete">
+          <div>
+            <img ngSrc="{{show.poster === 'N/A' ? defaultImage : show.poster }}" alt="poster image" width="53" height="83">
+          </div>
+          <div>
+            <p class="search-bar__text-option">{{show.title}}</p>
+            <p class="search-bar__text-option">{{show.year}}</p>
+          </div>
         </div>
       </mat-option>
     </mat-autocomplete>

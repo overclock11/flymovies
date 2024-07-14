@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 import {SearchBarComponent} from "fly-movies-ux";
 import {OmdbService} from "../../api/omdb.service";
-import {debounceTime, firstValueFrom, map, startWith} from "rxjs";
+import {firstValueFrom, map} from "rxjs";
 import {SearchBar} from "fly-movies-ux/lib/models/searchBar";
 import {Router} from "@angular/router";
+import {DEFAULT_IMAGE} from "fly-movies-ux/src/lib/constants";
 
 @Component({
   selector: 'app-search',
@@ -18,6 +19,7 @@ import {Router} from "@angular/router";
 })
 export class SearchComponent {
   shows: SearchBar[] = [];
+  defaultImage = DEFAULT_IMAGE;
 
   constructor(private omdbService: OmdbService, private router:Router) {
   }
@@ -26,6 +28,15 @@ export class SearchComponent {
     this.shows = [];
     this.shows = await firstValueFrom(this.omdbService.getByTitle(keyword).pipe(
       map((shows) => {
+        if (shows.Response === "False") {
+          return [
+            {
+              title: 'Ninguna coincidencia',
+              poster: this.defaultImage,
+              year: ''
+            }
+          ]
+        }
         return shows.Search.map((show) => {
           return {
             title: show.Title,
@@ -39,5 +50,9 @@ export class SearchComponent {
 
   goToDetail(title: string) {
     void this.router.navigate([`detail/${title}`]);
+  }
+
+  goHome(){
+    void this.router.navigate(['']);
   }
 }

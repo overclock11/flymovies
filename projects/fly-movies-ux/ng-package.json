@@ -6,5 +6,6 @@
   },
   "assets": [
     "./styles",
+    "./src/lib/constants"
   ]
 }

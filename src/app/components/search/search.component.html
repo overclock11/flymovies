@@ -1,8 +1,8 @@
 <div class="search">
   <div class="search__image">
-    <img src="assets/logo.png" alt="logo" width="137" height="26">
+    <img src="assets/logo.png" alt="logo" width="137" height="26" (click)="goHome()">
   </div>
   <div class="search__search-box">
-    <lib-search-bar (searchKeyword)="getShows($event)" [shows]="shows" (selected)="goToDetail($event)"/>
+    <lib-search-bar (searchKeyword)="getShows($event)" [shows]="shows" [debounce]="600" (selected)="goToDetail($event)"/>
   </div>
 </div>

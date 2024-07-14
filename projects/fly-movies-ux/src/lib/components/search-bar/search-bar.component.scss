@@ -7,10 +7,15 @@
     border-radius: 5px;
   }
   &__autocomplete {
-    background-color: black;
-  }
-  &__option {
-    color: black;
     display: flex;
+    justify-content: start;
+    & > div {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+  }
+  &__text-option {
+    color: black;
+    cursor: pointer;
   }
 }

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {DEFAULT_IMAGE} from "../../constants/defaultImage";
+import {DEFAULT_IMAGE} from "../../constants";
 import {MatAutocomplete, MatAutocompleteTrigger, MatOption} from "@angular/material/autocomplete";
 import {NgForOf, NgOptimizedImage} from "@angular/common";
 import {SearchBar} from "../../models/searchBar";

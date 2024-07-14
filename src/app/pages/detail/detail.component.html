@@ -14,7 +14,7 @@
   </section>
   <section id="detail" class="detail-page__detail">
     <div class="detail-page__detail--image">
-      <img src="{{show.Poster}}" alt="poster image" width="272" height="420">
+      <img src="{{show.Poster === 'N/A' ? defaultImage : show.Poster}}" alt="poster image" width="272" height="420">
     </div>
     <div class="detail-page__detail__description">
       <p class="detail-page__detail__awards--label">Awards and nominations: <span class="detail-page__detail__awards">{{show.Awards}}</span></p>

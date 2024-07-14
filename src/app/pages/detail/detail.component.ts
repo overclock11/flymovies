@@ -6,6 +6,7 @@ import {ShowDetail} from "../../models/show-detail";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {MatChip, MatChipSet} from "@angular/material/chips";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
+import {DEFAULT_IMAGE} from "fly-movies-ux/src/lib/constants";
 
 @Component({
   selector: 'app-detail',
@@ -41,6 +42,7 @@ export class DetailComponent implements OnInit {
   };
   genres: string[] = [];
   isLoading = true;
+  defaultImage = DEFAULT_IMAGE;
 
   constructor(private route: ActivatedRoute, private omdbService: OmdbService) {
   }
