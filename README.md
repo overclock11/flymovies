@@ -1,27 +1,31 @@
 # FlyMovies
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+El proyecto está desarrollado con Angular 17 y tiene una libería personalizada llamada fly-movies-ux
+https://www.npmjs.com/package/fly-movies-ux cuyo código se encuentra en la carpeta [projects](./projects) esta librería exporta
+componentes, estilos y constantes que se reutilizan en el proyecto.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Levantar proyecto en desarrollo
 
-## Code scaffolding
+Levantar localmente el proyecto es muy sencillo solo se requieren dos pasos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- En la carpeta raíz de proyecto ejecute `npm i`
+- En la carpeta raíz de proyecto ejecute `ng serve`
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Levantar proyecto y librería en desarrollo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Los pasos para levantar el proyecto usando la librería en desarrollo con un link simbólico son.
 
-## Running end-to-end tests
+- Navegue hasta la carpeta de la librería [./projects/fly-movies-ux](./projects/fly-movies-ux) y ejecute 'ng build fly-movies-ux'
+- En la carpeta de la librería [./projects/fly-movies-ux](./projects/fly-movies-ux) ejecute `npm link`
+- Elimine en los node_modules del proyecto principal la carpeta de la librería 'fli-movies-ux' y 
+en la carpeta raíz ejecute del proyecto principal `npm link fly-movies-ux`
+- Verifique que en el package.json esté la libería y la versión correcta
+- Ejecute `ng serve` y el proyecto ya estará apuntando al link simbolico
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Con estos paso puede hacer cambios en la librería y verlos reflejados directamente sobre el componente del proyecto principal que esté usando el componente
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Animation.gif](src/assets/Animation.gif)
