@@ -5,14 +5,13 @@ import {firstValueFrom, map} from "rxjs";
 import {SearchBar} from "fly-movies-ux/lib/models/searchBar";
 import {Router} from "@angular/router";
 import {DEFAULT_IMAGE} from "fly-movies-ux/src/lib/constants";
+import {ERROR_MESSAGE} from "../../constants/errorMessage";
 
 @Component({
   selector: 'app-search',
   standalone: true,
   imports: [
     SearchBarComponent,
-    SearchBarComponent,
-    SearchBarComponent
   ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
@@ -31,7 +30,7 @@ export class SearchComponent {
         if (shows.Response === "False") {
           return [
             {
-              title: 'Ninguna coincidencia',
+              title: ERROR_MESSAGE.noCoincidence,
               poster: this.defaultImage,
               year: ''
             }

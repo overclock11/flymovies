@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {OmdbService} from "../../api/omdb.service";
 import {firstValueFrom} from "rxjs";
-import {ShowDetail} from "../../models/show-detail";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {MatChip, MatChipSet} from "@angular/material/chips";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 import {DEFAULT_IMAGE} from "fly-movies-ux/src/lib/constants";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {ERROR_MESSAGE} from "../../constants/errorMessage";
 
 @Component({
   selector: 'app-detail',
@@ -38,13 +39,14 @@ export class DetailComponent implements OnInit {
     Actors: '',
     Country: '',
     Released: '',
-    Genre: ''
+    Genre: '',
+    Response: ''
   };
   genres: string[] = [];
   isLoading = true;
   defaultImage = DEFAULT_IMAGE;
 
-  constructor(private route: ActivatedRoute, private omdbService: OmdbService) {
+  constructor(private route: ActivatedRoute, private omdbService: OmdbService, private snackBar: MatSnackBar, private router: Router) {
   }
 
   async ngOnInit() {
@@ -52,6 +54,12 @@ export class DetailComponent implements OnInit {
     this.route.params.subscribe(async (params) => {
       this.title = params["title"];
       this.show = await firstValueFrom(this.omdbService.getDetail(this.title));
+      if(this.show.Response === 'False') {
+        let ref = this.snackBar.open(ERROR_MESSAGE.detailFailed, 'OK');
+        await firstValueFrom(ref.onAction()).then(()=>{
+          this.router.navigate(['']);
+        })
+      }
       this.genres = this.show.Genre.split(",");
       this.isLoading = false;
     })

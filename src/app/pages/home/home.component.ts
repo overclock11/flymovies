@@ -2,11 +2,14 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {MatTabsModule} from "@angular/material/tabs";
 import {OmdbService} from "../../api/omdb.service";
 import {Show} from "../../models/show";
-import {forkJoin} from "rxjs";
+import {firstValueFrom, forkJoin} from "rxjs";
 import {ShowsComponent} from "./shows/shows.component";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 import {NgIf} from "@angular/common";
 import {ShowType} from "../../enum/show-type";
+import {ERROR_MESSAGE} from "../../constants/errorMessage";
+import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-home',
@@ -29,7 +32,7 @@ export class HomeComponent implements OnInit {
   randomTitle ='marvel';
   randomYear = Math.floor(Math.random() * (12));
 
-  constructor(private omdbService: OmdbService) {
+  constructor(private omdbService: OmdbService, private router: Router, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -44,13 +47,22 @@ export class HomeComponent implements OnInit {
       this.omdbService.getShows(this.randomTitle, ShowType.Series, this.page, this.years[this.randomYear]),
       this.omdbService.getShows(this.randomTitle, ShowType.Series, this.page)
     ]).subscribe((
-      [
+      result
+    ) => {
+      result.forEach(async (shows)=> {
+        if(shows.Response === "False") {
+          let ref = this.snackBar.open(ERROR_MESSAGE.homeFailed, 'OK');
+          await firstValueFrom(ref.onAction()).then(()=>{
+            this.router.navigateByUrl('/');
+          })
+        }
+      })
+      const [
         featuredMovies,
         announcementsMovies ,
         featuredSeries,
         announcementsSeries,
-      ]
-    ) => {
+      ] = result;
       this.featuredMovies = featuredMovies.Search;
       this.announcementsMovies = announcementsMovies.Search;
       this.featuredSeries = featuredSeries.Search;

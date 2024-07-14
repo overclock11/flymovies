@@ -4,6 +4,7 @@
   "author": "Julián Borray <jlian92@gmail.com>",
   "description": "ux components for flypass app",
   "repository": "",
+  "private": false,
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0",
