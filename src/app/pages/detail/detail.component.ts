@@ -5,7 +5,7 @@ import {firstValueFrom} from "rxjs";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {MatChip, MatChipSet} from "@angular/material/chips";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
-import {DEFAULT_IMAGE} from "fly-movies-ux/src/lib/constants";
+import {DEFAULT_IMAGE} from "fly-movies-ux";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ERROR_MESSAGE} from "../../constants/errorMessage";
 

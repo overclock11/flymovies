@@ -4,7 +4,7 @@ import {OmdbService} from "../../api/omdb.service";
 import {firstValueFrom, map} from "rxjs";
 import {SearchBar} from "fly-movies-ux/lib/models/searchBar";
 import {Router} from "@angular/router";
-import {DEFAULT_IMAGE} from "fly-movies-ux/src/lib/constants";
+import {DEFAULT_IMAGE} from "fly-movies-ux";
 import {ERROR_MESSAGE} from "../../constants/errorMessage";
 
 @Component({
