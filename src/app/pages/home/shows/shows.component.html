@@ -18,7 +18,7 @@
     <h1>Premieres and announcements</h1>
     <div class="shows">
       <div *ngFor="let show of announcements">
-        <lib-preview-card [title]="show.Title" [score]="'2'" [poster]="show.Poster" />
+        <lib-preview-card [title]="show.Title" [score]="'2'" [poster]="show.Poster" (click)="goToDetail(show.Title)" />
       </div>
     </div>
   </section>

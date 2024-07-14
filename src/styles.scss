@@ -1,19 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import "app/styles/vars";
+@import "fly-movies-ux/styles";
 
 html, body { height: 100%; color: $gray-100; }
 body { margin: 0; font-family: "Lato", sans-serif; background-color: $black}
-.mat-tab-labels, .mat-tab-label, .mat-tab-link {
-  color: white;
-  font-size: 16px;
-  background-color: #804A71;
-}
-
-.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
-  background: white;
-  height: 5px;
-}
 
 span {
   color: $gray-100;
