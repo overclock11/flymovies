@@ -27,5 +27,6 @@ en la carpeta raíz ejecute del proyecto principal `npm link fly-movies-ux`
 
 Con estos paso puede hacer cambios en la librería y verlos reflejados directamente sobre el componente del proyecto principal que esté usando el componente
 
+**Puede acceder al proyecto a través de la url [http://flymovies.s3-website.us-east-2.amazonaws.com/](http://flymovies.s3-website.us-east-2.amazonaws.com/)**
 
 ![Animation.gif](src/assets/Animation.gif)
