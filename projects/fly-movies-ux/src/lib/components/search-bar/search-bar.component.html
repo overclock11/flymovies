@@ -1,0 +1,25 @@
+<div class="search-bar">
+  <mat-form-field class="search-bar__form">
+    <mat-label>Search movies</mat-label>
+    <input matInput
+           aria-label="State"
+           [matAutocomplete]="auto"
+           #searchBar
+    >
+    <mat-autocomplete #auto="matAutocomplete" [classList]="['autocomplete']">
+      <mat-option *ngFor="let show of shows" [value]="show.title"
+                  [classList]="['search-bar__option']"
+                  [class]="'search-bar__option'"
+                  (click)="selectedShow()"
+      >
+        <div>
+          <img ngSrc="{{show.poster === 'N/A' ? defaultImage : show.poster }}" alt="poster image" width="53" height="83">
+        </div>
+        <div>
+          <span>{{show.title}}</span>
+          <span>{{show.year}}</span>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

@@ -1,4 +1,4 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" [color]="'accent'">
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" [color]="'accent'" *ngIf="!isLoading; else skeleton">
   <mat-tab label="Movies">
     <app-shows [featured]="featured" [announcements]="announcements" />
   </mat-tab>
@@ -6,3 +6,32 @@
     <app-shows />
   </mat-tab>
 </mat-tab-group>
+
+<ng-template #skeleton>
+  <ngx-skeleton-loader
+    count="2"
+    animation="progress-dark"
+    appearance="line"
+    [theme]="{
+      height: '50px',
+      width: '100px',
+      'background-color': '#323232',
+      'border-radius': '10px'
+    }"
+  ></ngx-skeleton-loader>
+  <div>
+    <ngx-skeleton-loader
+      count="2"
+      animation="progress-dark"
+      appearance="line"
+      [theme]="{
+      height: '258px',
+      width: '100%',
+      'background-color': '#323232',
+      'border-radius': '10px'
+    }"
+    ></ngx-skeleton-loader>
+  </div>
+</ng-template>
+
+

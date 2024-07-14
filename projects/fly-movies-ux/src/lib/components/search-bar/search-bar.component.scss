@@ -1,0 +1,16 @@
+.search-bar {
+  width: 100%;
+  height: 100%;
+  &__form {
+    width: 100%;
+    height: 77px;
+    border-radius: 5px;
+  }
+  &__autocomplete {
+    background-color: black;
+  }
+  &__option {
+    color: black;
+    display: flex;
+  }
+}

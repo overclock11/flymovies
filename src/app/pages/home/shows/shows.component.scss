@@ -5,4 +5,11 @@
   & > div {
     margin-right: 15px;
   }
+
+  &__skeleton {
+    margin-top: 32px;
+    & > div {
+      margin-top: 15px;
+    }
+  }
 }

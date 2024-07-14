@@ -1,10 +1,15 @@
-<div #scroll>
-
+<div>
   <section id="featured">
     <h1>Featured today</h1>
     <div class="shows">
       <div *ngFor="let show of featured">
-        <lib-preview-card [title]="show.Title" [score]="'2'" [poster]="show.Poster" />
+        <lib-preview-card
+          [title]="show.Title"
+          [score]="'2'"
+          [poster]="show.Poster"
+          (click)="goToDetail(show.Title)"
+          class="shows__image"
+        />
       </div>
     </div>
   </section>
@@ -17,5 +22,4 @@
       </div>
     </div>
   </section>
-
 </div>

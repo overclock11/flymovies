@@ -1,0 +1,80 @@
+<div class="detail-page" *ngIf="!isLoading; else skeleton">
+  <section id="header" class="detail-page__header">
+    <div>
+      <h3>{{show.Type}}</h3>
+      <h1>{{show.Title}}</h1>
+      <span class="detail-page__header--span">{{show.Year}}</span>
+      <span class="detail-page__header--span">{{show.Runtime}}</span>
+    </div>
+    <div class="detail-page__rating">
+      <img ngSrc="./assets/Vector.png" alt="rating icon" height="34" width="36">
+      <span class="detail-page__rating--score">{{show.imdbRating}}</span>
+      <span class="detail-page__header--ratings">{{show.imdbVotes}} ratings</span>
+    </div>
+  </section>
+  <section id="detail" class="detail-page__detail">
+    <div class="detail-page__detail--image">
+      <img src="{{show.Poster}}" alt="poster image" width="272" height="420">
+    </div>
+    <div class="detail-page__detail__description">
+      <p class="detail-page__detail__awards--label">Awards and nominations: <span class="detail-page__detail__awards">{{show.Awards}}</span></p>
+      <mat-chip-set aria-label="Fish selection">
+        <mat-chip *ngFor="let genre of genres">{{genre}}</mat-chip>
+      </mat-chip-set>
+      <p>
+        {{show.Plot}}
+      </p>
+      <p>
+        <span class="detail-page__header--ratings">Director: </span> <span>{{show.Director}}</span>
+      </p>
+      <p>
+        <span class="detail-page__header--ratings">Stars: </span> <span>{{show.Actors}}</span>
+      </p>
+      <p>
+        <span class="detail-page__header--ratings">Countries of Origin: </span> <span>{{show.Country}}</span>
+      </p>
+      <p>
+        <span class="detail-page__header--ratings">Release date: </span> <span>{{show.Released}}</span>
+      </p>
+    </div>
+  </section>
+</div>
+<ng-template #skeleton>
+  <div class="detail-page__skeleton">
+    <div>
+      <ngx-skeleton-loader
+        count="1"
+        animation="progress-dark"
+        [theme]="{
+      height: '170px',
+      'background-color': '#323232',
+    }"
+      ></ngx-skeleton-loader>
+    </div>
+    <div #skeleton class="detail-page__skeleton-detail">
+      <ngx-skeleton-loader
+        count="1"
+        animation="progress-dark"
+        appearance="circle"
+        [theme]="{
+      height: '420px',
+      width: '272px',
+      'background-color': '#323232',
+      'border-radius': '10px'
+    }"
+        class="detail-page__skeleton-detail--image"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="8"
+        animation="progress-dark"
+        [theme]="{
+      height: '40px',
+      width: '100%',
+      'background-color': '#323232',
+    }"
+        class="detail-page__skeleton-detail--detail"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+
+</ng-template>

@@ -1,0 +1,12 @@
+.search {
+  display: flex;
+  justify-content: space-evenly;
+
+  &__image {
+    display: flex;
+    align-items: center;
+  }
+  &__search-box {
+    flex-basis: 70%;
+  }
+}

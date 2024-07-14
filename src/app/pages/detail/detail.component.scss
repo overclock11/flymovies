@@ -1,0 +1,58 @@
+.detail-page{
+  &__detail {
+    position: absolute;
+    bottom: 8%;
+    display: flex;
+    &--image {
+      flex-basis: 30%;
+    }
+    &__description {
+      font-size: 17px;
+      font-weight: 400;
+    }
+    &__awards {
+      font-family: "Lato", sans-serif;
+      font-style: normal;
+      color: #f5f5f5;
+      &--label {
+        color: #FDD835;
+      }
+    }
+  }
+  &__header {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 48%, rgb(0, 47, 56) 100%);
+    left: 0;
+    right: 0;
+    padding: 15px 30px 15px 30px;
+
+    &--ratings {
+      color: rgba(245, 245, 245, 0.36);
+      flex-basis: 10%;
+    }
+    &--span {
+      margin-right: 10px;
+    }
+  }
+  &__rating {
+    display: flex;
+    align-items: center;
+    &--score {
+      font-size: 34px;
+      margin-right: 5px;
+    }
+  }
+  &__skeleton-detail {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    &--image {
+      flex-basis: 30%;
+    }
+    &--detail {
+      flex-basis: 70%;
+    }
+  }
+}
